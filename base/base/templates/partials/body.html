@@ -1,0 +1,64 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'img/Logo.png' %}" type="image/x-icon">
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' %}" /> 
+    <link rel="stylesheet" href="{% static 'node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+ 
+    <title>Taller Pinautos</title>
+  </head>
+
+  
+  <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
+
+    {% include 'partials/header.html' %}
+    <div class="page-wrapper">
+      <div class="content">
+        <div class="space container "> 
+          {% block contenido %}
+          {% endblock contenido %}
+        </div>
+      </div>
+   
+ 
+
+    {% include 'partials/modal.html' %}
+    {% include 'partials/scripts.html' %}
+    <script src="{% static 'js/tablas.js'%}"></script>
+    <script src="{% static 'js/body.js'%}"></script>
+    <script type="text/javascript" src="{% static '/node_modules/accessibility/dist/main.bundle.js' %}"></script>
+    <script src="{% static 'js/accessibility.js'%}"></script>
+
+    {% include 'partials/footer.html' %}
+    {% if messages %}
+    {% for message in messages %}
+    
+    <script> 
+    Swal.fire(
+      {position: 'top-end',
+    toast: true,
+    showConfirmButton: false,
+    timer:10000,
+    timerProgressBar: true,
+    background: '#fffff',
+    icon:'{{ message.tags }}',
+    text:'{{ message }}',
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }        });
+    </script>
+
+    {% endfor %}
+    {% endif %}
+  </body>
+</html>

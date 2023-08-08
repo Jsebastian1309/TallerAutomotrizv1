@@ -1,0 +1,42 @@
+{% extends 'partials/body.html' %}
+{% block contenido %}
+<a href="{% url 'marcarepuestos-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
+<div class="wrapper m-5">
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre Marca Repuestos</th>
+                <th>Gama Repuesto</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for marcarepuesto in marcarepuestos %}
+                {% if marcarepuesto.estado != "0" %}
+                  <tr>
+                    <td>{{marcarepuesto.id}}</td>
+                    <td>{{marcarepuesto.nombremarcarepuesto}}</td>
+                    <td>{{marcarepuesto.gama_repuesto}}</td>
+                    <td>
+                      <button type="button" onclick="changeURL('{{marcarepuesto.id}}')" data-taller-pinautos="{{marcarepuesto.id}}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
+                        <i class="bi bi-trash"></i>
+                      </button>
+                      <a class="btn btn-primary" href="{% url 'marcarepuestos-modificar' marcarepuesto.id%}">
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
+                    </td>
+                  </tr>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+           </div>
+      </div>
+    </div>
+  </section>
+{% endblock contenido %}

@@ -1,0 +1,41 @@
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/imG/taller.jpg), no-repeat center center;
+    background-size: cover;
+}
+
+body.theme-light { 
+    .fondo{
+        background-color: #dde5ed;
+        color: #000000;
+        .whatsapp-link,
+        .telefono-link,
+        .correo-link{
+            color: #000000; 
+            text-decoration: none;
+        }
+    }
+    
+}
+
+body.theme-dark { 
+    .fondo{
+        background-color: #232323;
+        color: #ffffff;
+        .whatsapp-link,
+        .telefono-link,
+        .correo-link{
+            color: #ffffff; 
+            text-decoration: none;
+        }
+    }
+    
+}
+ 
+ 
+hr {
+    border: none;
+    height: 1px;
+    background-color: white;  
+    margin: 0.1px 0; 
+  }
+

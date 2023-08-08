@@ -1,0 +1,49 @@
+{% extends 'partials/body.html' %}
+{% block contenido %}
+<a href="{% url 'vehiculos-crear' %}" class="btn btn-success w-25">crear{{titulo}}</a> 
+<div class="wrapper m-5">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <table id="example" class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Placa</th>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Tipo de Aceite</th>
+                                <th>Kilometraje</th>
+                                <th>Linea</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for vehiculo in vehiculos %}
+                            {% if vehiculo.estado != "1" %}
+                                <tr class="bg-warning">
+                            {% else %}
+                                <tr>
+                            {% endif %}
+                                <td>{{vehiculo.placa}}</td>
+                                <td>{{vehiculo.marca}}</td>
+                                <td>{{vehiculo.modelo}}</td>
+                                <td>{{vehiculo.tipo_aceite}}</td>
+                                <td>{{vehiculo.kilometraje}}</td>
+                                <td>{{vehiculo.linea.nombre_linea}}</td>
+                                <td>
+                                    <button type="button" onclick="changeURL('{{vehiculo.id}}')" data-taller-pinautos="{{vehiculo.id}}" class="btnEliminar btn btn-danger"data-bs-toggle="modal" data-bs-target="#modalConf" title="Eliminar">
+                                    <i class="bi bi-trash"></i>
+                                    </button>
+                                    <a class="btn btn-primary" href="{% url 'vehiculos-modificar' vehiculo.id%}"><i class="bi bi-pencil-square" title="Modificar"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock contenido %}

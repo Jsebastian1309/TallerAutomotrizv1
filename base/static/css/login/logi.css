@@ -1,0 +1,30 @@
+.imagenlogin {
+    background-image: url("/static/img/loginpinautos.jpg");
+    background-position: center center;
+}
+.margin{
+    margin-top: 140px;  
+}
+body.theme-light {
+    .fondlogin,
+    .textlogin{
+        background-color:#abb5bf;
+        color: #000000;
+    } 
+    .alert-custom {
+    background-color: #7d848c;
+    color: #000000;  
+    } 
+}
+  body.theme-dark {
+    .fondlogin,
+    .textlogin{
+        background-color:#181818;
+        color: #ffffff;
+     } 
+  .alert-custom {
+    background-color: #3e3e3e;
+    color: #ffffff;  
+    }
+  } 
+ 

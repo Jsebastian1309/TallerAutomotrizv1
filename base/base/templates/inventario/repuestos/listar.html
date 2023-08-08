@@ -1,0 +1,54 @@
+{% extends 'partials/body.html' %}
+{% block contenido %}
+  <a href="{% url 'repuestos-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
+  <div class="wrapper m-5">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <table id="example" class="table table-striped" style="width:100%">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre Repuesto</th>
+                  <th>Costo Repuesto</th>
+                  <th>Stock</th>
+                  <th>Tipo Repuesto</th>
+                  <th>Descripcion Repuesto</th>
+                  <th>Marca De Repuesto</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for repuesto in repuestos %} {% if repuesto.estado != "0" %}
+                {% endif %}
+                <tr>
+                  <td>{{repuesto.id}}</td>
+                  <td>{{repuesto.nombrerepuesto}}</td>
+                  <td>{{repuesto.costorepuesto}}</td>
+                  <td>{{repuesto.stock}}</td>
+                  <td>{{repuesto.tipo_repuesto}}</td>
+                  <td>{{repuesto.descripcionrepuesto}}</td>
+                  <td>{{repuesto.marcarepuesto.nombremarcarepuesto }}</td>
+                  <td>
+                    <button type="button" onclick="changeURL('{{repuesto.id}}')" data-taller-pinautos="{{repuesto.id}}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                    <a class="btn btn-primary" href="{% url 'repuestos-modificar' repuesto.id%}">
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock contenido %}
+
+
+
+ 

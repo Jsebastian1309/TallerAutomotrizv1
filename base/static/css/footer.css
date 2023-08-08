@@ -1,0 +1,19 @@
+
+  body.theme-light {
+    .text-footer,
+    .fondfooter{
+    background-color:#abb5bf;
+    color: #000000;
+  }
+}
+  body.theme-dark {
+    .text-footer,
+    .fondfooter{
+    background-color:#181818;
+    color: #ffffff;
+  }
+}  
+
+.fondfooter {
+  margin-top: auto;
+}

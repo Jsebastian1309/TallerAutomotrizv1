@@ -1,0 +1,45 @@
+{% extends 'partials/body.html' %}
+{% block contenido %}
+  <a href="{% url 'servicios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
+  <div class="wrapper m-5">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">   
+          <div class="col-12">
+            <table id="example" class="table table-striped" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Duracion</th>
+                  <th>Tipo De servicio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for servicio in servicios %}
+                  {% if servicio.estado != "0" %}
+                    <tr>
+                      <td>{{ servicio.nombre }}</td>
+                      <td>{{ servicio.descripcion }}</td>
+                      <td>{{ servicio.duracion }}</td>
+                      <td>{{ servicio.tipo_servicio }}</td>
+                      <td>
+                        <button type="button" onclick="changeURL('{{ servicio.id }}')" data-taller-pinautos="{{ servicio.id }}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                        <a class="btn btn-primary" href="{% url 'servicios-modificar' servicio.id %}">
+                          <i class="bi bi-pencil-square"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock contenido %}

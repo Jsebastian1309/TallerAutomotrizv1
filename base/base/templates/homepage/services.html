@@ -1,0 +1,95 @@
+{% extends 'homepage/body-homepage.html' %}
+{% load static %}
+{% block contenido %}
+<html lang="es">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/homepage/services.css' %}">
+    </head>
+    <body>
+        <!-- Inicio Titulo -->
+        <section class="container-fluid page-header">
+            <div class="container-izquierda ">
+                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                    <h3 class="display-4 text-white text-uppercase">Servicios</h3>
+                    <div class="d-inline-flex text-white">
+                        <p class="m-0 text-uppercase"><a class="text-white text-decoration-none" href="{% url 'start' %}">Inicio</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Fin Titulo -->
+        <!--Inicio Servicios-->
+        <section class="container-fluid py-5">
+            <div class="container pt-5 pb-3">
+                <div class="text-center mb-3 pb-3">
+                    <h6 class="color-text text-uppercase" style="letter-spacing: 5px;">Pinautos</h6>
+                    <h1 class="color-text">En nuestro taller te ofrecemos los siguientes Servicios</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item  text-center fondsevicescard mb-2 py-5 px-4"  >
+                            <i class="fa fa-2x fa-route mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card color-text">Mecánica General</h5>
+                            <p class="m-0 text-card">En Pinautos, ofrecemos soluciones confiables y eficientes para mantener tu vehículo en excelente estado. Desde el mantenimiento preventivo hasta reparaciones especializadas, nuestro equipo de expertos se encargará de todos los aspectos mecánicos de tu automóvil. Precios competitivos, atención de calidad y resultados garantizados.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item text-center fondsevicescard mb-2 py-5 px-4"  >
+                            <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card">Mantenimiento Preventivo</h5>
+                            <p class="m-0 text-card">¡Mantén tu vehículo en excelente estado con nuestro servicio de mantenimiento preventivo! En Pinautos, nos encargamos de inspeccionar y cuidar cada detalle importante de tu automóvil. Nuestro equipo experto y precios competitivos garantizan tu tranquilidad en la carretera.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item text-center fondsevicescard mb-2 py-5 px-4"  >
+                            <i class="fa fa-2x fa-hotel mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card">Revisión de Frenos</h5>
+                            <p class="m-0 text-card">¡Asegura tu seguridad en la carretera con nuestro servicio de revisión de frenos! En Pianutos, ofrecemos una inspección exhaustiva y precisa de todo el sistema de frenado de tu vehículo. Nuestro equipo especializado y precios competitivos garantizan tu tranquilidad al conducir.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item text-center fondsevicescard mb-2 py-5 px-4"  >
+                            <i class="fa fa-2x fa-route mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card">Limpieza interna y externa del motor</h5>
+                            <p class="m-0 text-card">¡Dale un impulso a tu motor con nuestro servicio de limpieza especializada! En Pinautos, utilizamos técnicas y productos avanzados para eliminar la suciedad y los residuos, dejando tu motor limpio y eficiente. Mejora el rendimiento y prolonga la vida útil de tu vehículo.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item text-center fondsevicescard mb-2 py-5 px-4 "  >
+                            <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card">Revisión de fluidos</h5>
+                            <p class="m-0 text-card">¡Mantén tu vehículo en excelentes condiciones con nuestro servicio de revisión de fluidos! En Pinautos, nos encargamos de verificar y mantener los niveles adecuados de los fluidos esenciales de tu automóvil. Mejora el rendimiento y evita problemas costosos.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-item text-center fondsevicescard mb-2 py-5 px-4"  >
+                            <i class="fa fa-2x fa-hotel mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg></i>
+                            <h5 class="mb-2 text-card">Revisión de Filtros</h5>
+                            <p class="m-0 text-card">¡Asegura un rendimiento óptimo de tu vehículo con nuestro servicio de revisión de filtros! En Pinautos, nos encargamos de verificar y mantener los filtros clave de tu automóvil para proteger el motor y mejorar la eficiencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Fin Servicio -->
+    </body>
+</html>
+{% endblock contenido %}
