@@ -12,12 +12,16 @@ class UsuarioForm(ModelForm):
         widgets={
             'fecha_registro': widgets.DateInput(attrs={'type':'date'},format='%Y-%m-%d')
         }
+     
+        
         
 class UsuarioUpdateForm(ModelForm):
     class Meta:
         model = Usuario
         fields = "__all__"
         exclude=["documento","rh","fecha_registro"]
+        
+        
         
 
 
