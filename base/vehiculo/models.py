@@ -33,11 +33,22 @@ class Linea(models.Model):
         return self.nombre_linea
     
 class Vehiculo(models.Model):
-    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Cliente",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE} )  
+    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name=" Nombre Cliente",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE},blank=True )  
     placa= models.CharField(max_length=6,  verbose_name="Placa")
-    marca= models.CharField(max_length=10, verbose_name="Marca",default='',blank=False,validators=[alphabetic_validator])
+    class Marca(models.TextChoices):
+        RENAULT='RENAULT',_("Renault")
+        CHEVROLET='CHEVROLET',_("Chevrolet")
+        HONDA='HONDA',_("Honda")
+        CITROEN='CITROEN',_("Citroën")
+        FORD='FORD',_("Ford")
+        HYUNDAI='HYUNDAI',_("Hyundai")
+        KIA='KIA',_("Kia")
+        MAZDA='MAZDA',_("Mazda")
+        MITSUBISHI='MITSUBISHI',_("Mitsubishi")
+        NISSAN='NISSAN',_("Nissan")
+    marca=models.CharField(max_length=10,choices=Marca.choices,verbose_name="Marca",blank=False)
     modelo= models.CharField(max_length=4, verbose_name="Modelo",default='',blank=False)
-    tipo_aceite= models.CharField(max_length=25, verbose_name= "Tipo de Aceite")
+    tipo_aceite= models.CharField(max_length=6, verbose_name= "Tipo de Aceite")
     kilometraje= models.CharField(max_length=6, verbose_name= "Kilometraje",default='',validators=[numeric_validator],unique=True,blank=False)
     nombre_linea=models.ForeignKey(Linea, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Linea",default=None)
     class Estado(models.TextChoices):

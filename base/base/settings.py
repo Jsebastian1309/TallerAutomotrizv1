@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'vehiculo',
     'servicio',
     'mantenimiento',
-    'django_bootstrap5',#pip install django-bootstrap5
-    'crispy_forms', #pip install django-crispy-forms
-    'crispy_bootstrap5', #pip install crispy-bootstrap
-    'django_bootstrap_icons', #pip install django-bootstrap5-icons
-    #'Flask-Mail', #pip install Flask-Mail
+    'django_bootstrap5', 
+    'crispy_forms', 
+    'crispy_bootstrap5', 
+    'django_bootstrap_icons', 
+     
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS= "bootstrap5"
 CRISPY_TEMPLATE_PACK= "bootstrap5"
