@@ -3,8 +3,10 @@
 
 {% block contenido %}
 <form action="" method="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Agregar{{ titulo }}"/>
+    {% csrf_token %} {{ form|crispy }}
+    <div class="text-center">
+        <a href="{% url 'lineas' %}" class="btn btn-primary m-3"> Volver {{titulo}}</a>
+        <input type="submit" value="Agregar{{ titulo }}" class="btn btn-success m-3" />
+    </div>
 </form>
 {% endblock contenido %}
