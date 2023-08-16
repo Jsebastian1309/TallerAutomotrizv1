@@ -3,7 +3,7 @@ from servicio.models import Servicio,Detalle_servicio
 from servicio.forms import ServicioForm,ServicioUpdateForm,Detalle_servicioForm, Detalle_servicioUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+ 
 
 @login_required
 def servicio_crear(request):
