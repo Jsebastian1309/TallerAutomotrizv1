@@ -1,5 +1,4 @@
 from django.contrib import admin
-from mantenimiento.models import Mantenimiento,Cita
+from mantenimiento.models import Cita
 # Register your models here.
-admin.site.register(Mantenimiento)
 admin.site.register(Cita)

@@ -13,7 +13,7 @@ def alphabetic_validator(value):
 class Arl(models.Model):
     nombre_arl= models.CharField(max_length=20,verbose_name="Nombre Arl",blank=False,validators=[alphabetic_validator])
     telefono_arl= models.CharField(max_length=13,verbose_name="Telefono Arl",validators=[numeric_validator],blank=False)
-    correo_arl= models.EmailField(max_length=40,verbose_name="Correo Arl",blank=False)
+    correo_arl= models.EmailField(max_length=50,verbose_name="Correo Arl",blank=False)
     fecha_inicioafi= models.DateField(verbose_name="Fecha de Inicio Afiliacion", help_text="MM/DD/AAAA")
     fecha_vencimientoafi= models.DateField(verbose_name="Fecha De Vencimiento Afiliacion", help_text="MM/DD/AAAA")
     
@@ -44,10 +44,10 @@ class Usuario(models.Model):
     identificacion = models.CharField(max_length=10, verbose_name="Identificacion", default='', validators=[numeric_validator], unique=True, blank=False)
     telefono = models.CharField(max_length=11, verbose_name="Telefono", validators=[numeric_validator], blank=False)
     
-    nombreusuario = models.CharField(max_length=20, verbose_name="Nombre De Usuario", blank=False, default='')
-    correo_personal = models.EmailField(max_length=50, verbose_name="Correo Personal", blank=False, default='')
-    contraseña = models.CharField(max_length=20, verbose_name="Contraseña", blank=False, default='')
-    confirmarcontraseña = models.CharField(max_length=20, verbose_name="Confirmar Contraseña", blank=False, default='')
+    nombreusuario = models.CharField(max_length=20, verbose_name="Nombre De Usuario", blank=True, default='')
+    correo_personal = models.EmailField(max_length=50, verbose_name="Correo Personal", blank=True, default='')
+    contraseña = models.CharField(max_length=20, verbose_name="Contraseña", blank=True, default='')
+    confirmarcontraseña = models.CharField(max_length=20, verbose_name="Confirmar Contraseña", blank=True, default='')
     direccion = models.CharField(max_length=50, verbose_name="Dirección", blank=True)
     fecha_registro = models.DateField(verbose_name="Fecha de Registro", help_text="MM/DD/AAAA", auto_now_add=True,)
     class RH(models.TextChoices):
