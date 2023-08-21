@@ -13,3 +13,22 @@
   .content {
     flex: 1;
   }
+
+  
+body.theme-light {
+  .fondcard,
+  .colortextcolumn{
+    background-color: #abb5bf;
+    color: #000000;
+  }
+  
+}
+body.theme-dark {
+  .fondcard,
+  .colortextcolumn{
+    background-color: #181818;
+    color: #ffffff;
+  }
+}  
+
+  
