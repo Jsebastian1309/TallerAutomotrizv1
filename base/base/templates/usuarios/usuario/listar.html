@@ -9,7 +9,6 @@
             <table id="example" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Nombres</th>
                   <th>Apellidos</th>
                   <th>Tipo Identificacion</th>
@@ -26,7 +25,6 @@
                 {% for usuario in usuarios %}{% if usuario.estado != "1" %}
                   {% endif %}
                 <tr>
-                  <td>{{usuario.id }}</td>
                   <td>{{usuario.nombres}} 
                   <td>{{usuario.apellidos}} 
                   <td>{{usuario.tipo_identificacion}}</td>
@@ -53,5 +51,26 @@
       </div>
     </section>
   </div>
- 
+  <script>
+    new DataTable('#example', {
+    dom: 'Bfrtip',
+    buttons: [
+        {
+        extend: 'excel',
+        text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'pdf',
+        text: '<i class="bi bi-filetype-pdf"></i> PDF',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'print',
+        text: '<i class="bi bi-printer"></i> Imprimir',
+        className: 'btn btn-link',
+        },
+    ],
+    });
+</script>
 {% endblock contenido %}

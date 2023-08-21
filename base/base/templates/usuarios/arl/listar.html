@@ -9,7 +9,6 @@
             <table id="example" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Nombre ARL</th>
                   <th>Telefono ARL</th>
                   <th>Correo ARL</th>
@@ -21,9 +20,7 @@
               <tbody>
                 {% for arl in arls %} {% if arl.estado != "0" %}
                 {% endif %}
-
                 <tr>
-                  <td>{{arl.id }}</td>
                   <td>{{arl.nombre_arl}}</td>
                   <td>{{arl.telefono_arl}}</td>
                   <td>{{arl.correo_arl}}</td>
@@ -47,4 +44,32 @@
       </div>
     </section>
   </div>
+
+  <script>
+    new DataTable('#example', {
+      dom: 'Bfrtip',
+      buttons: [
+        {
+          extend: 'excel',
+          text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+          className: 'btn btn-link',
+        },
+        {
+          extend: 'pdf',
+          text: '<i class="bi bi-filetype-pdf"></i> PDF',
+          className: 'btn btn-link',
+        },
+        {
+          extend: 'print',
+          text: '<i class="bi bi-printer"></i> Imprimir',
+          className: 'btn btn-link',
+        },
+      ],
+    });
+  </script>
 {% endblock contenido %}
+{% comment %} {
+  extend: 'copy',
+  text: '<i class="bi bi-clipboard-data"></i> Copiar',
+  className: 'btn btn-secondary',
+}, {% endcomment %}
