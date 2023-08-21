@@ -1,6 +1,5 @@
 from django.db import models
 from usuarios.models import Usuario
-
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -58,7 +57,7 @@ class Vehiculo(models.Model):
         INACTIVO='0',_("Inactivo")
     estado=models.CharField(max_length=10,choices=Estado.choices,default=Estado.ACTIVO,verbose_name="Estado")
     def __str__(self):
-        return f"({self.placa}) {self.identificacion}"
+        return f"({self.placa}){self.identificacion}"
     class Meta:
         verbose_name_plural = "vehiculo"
 

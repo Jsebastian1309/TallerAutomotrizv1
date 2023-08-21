@@ -3,16 +3,15 @@ from servicio.models import Servicio,Detalle_servicio
 from servicio.forms import ServicioForm,ServicioUpdateForm,Detalle_servicioForm, Detalle_servicioUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
- 
 
 @login_required
 def servicio_crear(request):
     titulo="Servicio"
-    if request.method== 'POST':
-        form= ServicioForm(request.POST)
+    if request.method=='POST':
+        form=ServicioForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'El Servicio se ha creado correctamente.')
+            messages.success(request,'El Servicio se ha creado correctamente.')
             return redirect('servicios')
         else:
             messages.error(request, 'El formulario tiene errores.')

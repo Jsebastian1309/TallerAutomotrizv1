@@ -1,5 +1,6 @@
 from django.db import models
 from vehiculo.models import Vehiculo
+from servicio.models import Servicio
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
@@ -8,8 +9,6 @@ from django.utils.translation import gettext_lazy as _
 def alphabetic_validator(value):
     if not value.isalpha():
         raise ValidationError('El campo debe contener solo letras.')
-
- 
         
 class Cita(models.Model):
     placa=models.ForeignKey(Vehiculo, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Usuario",default=None)
@@ -17,6 +16,8 @@ class Cita(models.Model):
     hora_cita= models.TimeField(max_length=15, verbose_name="Hora de cita", help_text="HH/MM/SS",blank=False)
     contacto = models.CharField(max_length=10,verbose_name="Contacto",default='',blank=False)    
     descripcion_cita= models.CharField(max_length=50,verbose_name="Descripcion de la cita",default='',blank=False,validators=[alphabetic_validator])
+    nombreservicios= models.ForeignKey(Servicio,on_delete=models.SET_NULL,null=True,blank=True,verbose_name="Nombre servicio", default=None)
+
     class EstadoCita(models.TextChoices):
         Programada='Programada',_("Programada")
         Pospuesta='Pospuesta',_("Pospuesta")
