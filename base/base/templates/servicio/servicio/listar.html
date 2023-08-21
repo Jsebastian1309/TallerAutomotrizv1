@@ -42,4 +42,26 @@
       </div>
     </section>
   </div>
+  <script>
+    new DataTable('#example', {
+    dom: 'Bfrtip',
+    buttons: [
+        {
+        extend: 'excel',
+        text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'pdf',
+        text: '<i class="bi bi-filetype-pdf"></i> PDF',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'print',
+        text: '<i class="bi bi-printer"></i> Imprimir',
+        className: 'btn btn-link',
+        },
+    ],
+    });
+</script>
 {% endblock contenido %}
