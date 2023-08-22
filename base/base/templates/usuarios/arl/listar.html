@@ -1,13 +1,11 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
+
   <a href="{% url 'arls-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
-  <div class="wrapper m-5">
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <table id="example" class="table table-striped" style="width:100%">
-              <thead>
+  <div class="card fondcard m-5">
+    <div class="card-body">
+        <table id="example" class="table table-striped dark" style="width:100%">
+            <thead>
                 <tr>
                   <th>Nombre ARL</th>
                   <th>Telefono ARL</th>
@@ -37,39 +35,32 @@
                   </td>
                 </tr>
                 {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
+               </tbody>
+        </table>
+    </div>
+</div>
   <script>
     new DataTable('#example', {
       dom: 'Bfrtip',
+      scrollY: '200px',
       buttons: [
         {
           extend: 'excel',
           text: '<i class="bi bi-file-earmark-excel"></i> Excel',
-          className: 'btn btn-link',
+          className: 'btn btn-success', 
         },
         {
           extend: 'pdf',
           text: '<i class="bi bi-filetype-pdf"></i> PDF',
-          className: 'btn btn-link',
+          className: 'btn btn-danger',  
         },
         {
           extend: 'print',
           text: '<i class="bi bi-printer"></i> Imprimir',
-          className: 'btn btn-link',
+          className: 'btn btn-primary',  
         },
       ],
     });
   </script>
 {% endblock contenido %}
-{% comment %} {
-  extend: 'copy',
-  text: '<i class="bi bi-clipboard-data"></i> Copiar',
-  className: 'btn btn-secondary',
-}, {% endcomment %}
+ 
