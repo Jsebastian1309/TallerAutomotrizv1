@@ -5,7 +5,9 @@
   
   <div class="card fondcard m-5">
     <div class="card-body">
-        
+        <div class="text-decoration-none colortextcolumns">
+            Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Nombres</a> - <a class="toggle-vis" data-column="2">Apellidos</a> - <a class="toggle-vis" data-column="3">Tipo Identificacion</a> - <a class="toggle-vis" data-column="4">Identificacion</a> - <a class="toggle-vis" data-column="5">Tipo De usuario</a>
+        </div>
         <table id="example" class="table table-striped dark" style="width:100%">
             <thead>
                 <tr>
@@ -51,28 +53,5 @@
     </div>
 </div>
 
-<script>
-  new DataTable('#example', {
-    dom: 'Bfrtip',
-    scrollY: '200px',
-    buttons: [
-      {
-        extend: 'excel',
-        text: '<i class="bi bi-file-earmark-excel"></i> Excel',
-        className: 'btn btn-success', 
-      },
-      {
-        extend: 'pdf',
-        text: '<i class="bi bi-filetype-pdf"></i> PDF',
-        className: 'btn btn-danger', 
-      },
-      {
-        extend: 'print',
-        text: '<i class="bi bi-printer"></i> Imprimir',
-        className: 'btn btn-primary', 
-      },
-    ],
-  });
-</script>
-
+ 
 {% endblock contenido %}

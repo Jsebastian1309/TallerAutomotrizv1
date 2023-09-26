@@ -1,36 +1,30 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
-  <a href="{% url 'detalleservicios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
+  <a href="{% url 'mantenimientos-crear' %}" class="btn btn-success w-25">Crear {{ titulo }}</a>
   <div class="wrapper m-5">
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="example" class="table table-striped" style="width: 100%">
               <thead>
                 <tr>
-                  <th>Fecha Servicio</th>
-                  <th>Tecnico</th>
-                  <th>Kilometraje</th>
-                  <th>Estado Del Vehiculo</th>
-                  <th>Observaciones</th>
+                  <th>Historial mantenimiento</th>
+                  <th>Historial Reparaciones</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                {% for detalle_servicio in detalleservicios %}
-                  {% if detalle_servicio.estado != "0" %}
+                {% for mantenimiento in mantenimientos %}
+                  {% if mantenimiento.estado != "0" %}
                     <tr>
-                      <td>{{ detalle_servicio.fecha_servicio }}</td>
-                      <td>{{ detalle_servicio.tecnico }}</td>
-                      <td>{{ detalle_servicio.kilometraje }}</td>
-                      <td>{{ detalle_servicio.estado_vehiculo }}</td>
-                      <td>{{ detalle_servicio.observaciones }}</td>
+                      <td>{{ mantenimiento.historial_mantenimiento }}</td>
+                      <td>{{ mantenimiento.historial_reparaciones }}</td>
                       <td>
-                        <button type="button" onclick="changeURL('{{ detalle_servicio.id }}')" data-taller-pinautos="{{ detalle_servicio.id }}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
+                        <button type="button" onclick="changeURL('{{ mantenimiento.id }}')" data-taller-pinautos="{{ mantenimiento.id }}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
                           <i class="bi bi-trash"></i>
                         </button>
-                        <a class="btn btn-primary" href="{% url 'detalleservicios-modificar' detalle_servicio.id %}">
+                        <a class="btn btn-primary" href="{% url 'mantenimientos-modificar' mantenimiento.id %}">
                           <i class="bi bi-pencil-square"></i>
                         </a>
                       </td>

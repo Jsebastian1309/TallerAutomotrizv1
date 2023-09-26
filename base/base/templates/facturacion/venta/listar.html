@@ -1,9 +1,11 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
     <a href= "{% url 'ventas-crear' %}" class="btn btn-success w-25">crear {{titulo}}</a>
-    <div class="card fondcard m-5">
-        <div class="card-body">
-            
+     <div class="wrapper m-5">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
@@ -37,28 +39,29 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </section>
     </div>
     <script>
         new DataTable('#example', {
-          dom: 'Bfrtip',
-          scrollY: '200px',
-          buttons: [
+        dom: 'Bfrtip',
+        buttons: [
             {
-              extend: 'excel',
-              text: '<i class="bi bi-file-earmark-excel"></i> Excel',
-              className: 'btn btn-success', 
+            extend: 'excel',
+            text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+            className: 'btn btn-link',
             },
             {
-              extend: 'pdf',
-              text: '<i class="bi bi-filetype-pdf"></i> PDF',
-              className: 'btn btn-danger', 
+            extend: 'pdf',
+            text: '<i class="bi bi-filetype-pdf"></i> PDF',
+            className: 'btn btn-link',
             },
             {
-              extend: 'print',
-              text: '<i class="bi bi-printer"></i> Imprimir',
-              className: 'btn btn-primary', 
+            extend: 'print',
+            text: '<i class="bi bi-printer"></i> Imprimir',
+            className: 'btn btn-link',
             },
-          ],
+        ],
         });
-      </script>
+    </script>
  {% endblock contenido %}
