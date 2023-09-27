@@ -1,8 +1,7 @@
 from django.urls import path
-
 from servicio.views import servicio_listar, servicio_crear, servicio_modificar, servicio_eliminar
 from servicio.views import detalleservicio_listar, detalleservicio_crear, detalleservicio_modificar, detalleservicio_eliminar
-from . import views
+ 
 
 urlpatterns = [
     path('servicio/', servicio_listar, name="servicios" ),
@@ -15,6 +14,6 @@ urlpatterns = [
     path('detalle_servicio/modificar/<int:pk>/', detalleservicio_modificar, name="detalleservicios-modificar" ),
     path('detalle_servicio/eliminar/<int:pk>/', detalleservicio_eliminar, name="detalleservicios-eliminar" ),
     
-    path('', views.ultimoservicio, name='ultiservices'),
+     
 
 ]

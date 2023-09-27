@@ -25,6 +25,8 @@
 
     <link rel="stylesheet" href="{% static 'css/body.css' %}">
  
+
+ 
     <title>Taller Pinautos</title>
   </head>
 
@@ -52,7 +54,9 @@
     {% include 'partials/footer.html' %}
     {% if messages %}
     {% for message in messages %}
-    
+    <script src="{% static 'jquery/dist/jquery.js' %}"></script>
+    <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
+     
     <script> 
     Swal.fire(
       {position: 'top-end',

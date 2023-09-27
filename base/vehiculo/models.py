@@ -12,7 +12,7 @@ def alphabetic_validator(value):
         raise ValidationError('El campo debe contener solo letras.')
     
 class Linea(models.Model):
-    nombre_linea= models.CharField(max_length=10, verbose_name= " Linea ",default='',blank=False,validators=[alphabetic_validator]  )
+    nombre_linea= models.CharField(max_length=20, verbose_name= "Linea",default='',blank=False,validators=[alphabetic_validator])
     class Cilindraje(models.TextChoices):
         MIL='1.000 cc',_("1.000 cc")
         MIL_CUATROCIENTOS='1.400 cc',_("1.400 cc")
@@ -27,14 +27,15 @@ class Linea(models.Model):
         ACTIVO='1',_("Activo")
         INACTIVO='0',_("Inactivo")
     estado=models.CharField(max_length=10,choices=Estado.choices,default=Estado.ACTIVO,verbose_name="Estado")
+    def __str__(self):
+        return self.nombre_linea  
     class Meta:
         verbose_name_plural="linea"
-    def __str__(self):
-        return self.nombre_linea
+    
     
 class Vehiculo(models.Model):
-    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name=" Nombre Cliente",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE},blank=True )  
-    placa= models.CharField(max_length=6,  verbose_name="Placa")
+    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Usuario",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE})
+    placa= models.CharField(max_length=6,verbose_name="Placa")
     class Marca(models.TextChoices):
         RENAULT='RENAULT',_("Renault")
         CHEVROLET='CHEVROLET',_("Chevrolet")
@@ -48,7 +49,7 @@ class Vehiculo(models.Model):
         NISSAN='NISSAN',_("Nissan")
     marca=models.CharField(max_length=10,choices=Marca.choices,verbose_name="Marca",blank=False)
     modelo= models.CharField(max_length=4, verbose_name="Modelo",default='',blank=False)
-    tipo_aceite= models.CharField(max_length=6, verbose_name= "Tipo de Aceite")
+    tipo_aceite= models.CharField(max_length=15, verbose_name= "Tipo de Aceite")
     kilometraje= models.CharField(max_length=6, verbose_name= "Kilometraje",default='',validators=[numeric_validator],unique=True,blank=False)
     nombre_linea=models.ForeignKey(Linea, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Linea",default=None)
     class Estado(models.TextChoices):
@@ -56,7 +57,7 @@ class Vehiculo(models.Model):
         INACTIVO='0',_("Inactivo")
     estado=models.CharField(max_length=10,choices=Estado.choices,default=Estado.ACTIVO,verbose_name="Estado")
     def __str__(self):
-        return f"({self.identificacion}){self.placa}{self.modelo}"
+        return f"({self.placa}){self.identificacion}"
     class Meta:
         verbose_name_plural = "vehiculo"
 
