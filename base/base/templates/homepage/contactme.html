@@ -4,20 +4,22 @@
 <html lang="es">
   <head>
     <link rel="stylesheet" href="{% static 'css/homepage/contactme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage/us.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/scss/all.min.css' %}"/>
+    <script src="{% static 'node_modules/scrollreveal/dist/scrollreveal.js' %}"></script>
   </head>
   <body>
+
     <!-- Inicio Titulo -->
-    <section class="container-fluid page-header">
-      <div class="container-izquierda ">
-          <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-              <h3 class="display-4 text-white text-uppercase">Contactanos</h3>
-              <div class="d-inline-flex text-white">
-                  <p class="m-0 text-uppercase"><a class="text-white text-decoration-none" href="{% url 'start' %}">Inicio</a></p>
-              </div>
-          </div>
-      </div>
-    </section> 
+    <hr>
+        <section class="container-fluid">
+            <div class="d-flex flex-column align-items-center justify-content-center" >
+                <h1 class=" text-box ">Contáctanos</h1>
+            </div>
+        </section>
+        <hr>
     <!-- Fin Titulo -->
+
     <!-- Inicio Formulario Contactame-->
     <section class="ftco-section">
       <div class="row justify-content-center fondo">
@@ -26,7 +28,7 @@
             <div class="row no-gutters mb-5">
               <div class="col-md-7">
                 <div class="contact-wrap w-100 p-md-5 p-4">
-                  <h3 class="mb-4 ">Contactanos</h3>
+                  <h3 class="mb-4 ">Contáctanos</h3>
                   <form method="POST" id="contactForm" name="contactForm" class="contactForm">
                     <div class="row">
                       <div class="col-md-6">
@@ -100,6 +102,7 @@
       </div>
     </section>
     <!-- Fin Contactos -->
+    <script src="{% static 'js/homepage/us.js' %}"></script>
   </body>
 </html>
 {% endblock contenido %}

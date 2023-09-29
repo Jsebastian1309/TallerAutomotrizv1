@@ -1,16 +1,12 @@
-.page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/imG/taller.jpg), no-repeat center center;
-    background-size: cover;
-}
 
 body.theme-light { 
     .fondo{
-        background-color: #dde5ed;
-        color: #000000;
+        background-color: #f7f7f7;
+        color: #333333;
         .whatsapp-link,
         .telefono-link,
         .correo-link{
-            color: #000000; 
+            color: #333333; 
             text-decoration: none;
         }
     }

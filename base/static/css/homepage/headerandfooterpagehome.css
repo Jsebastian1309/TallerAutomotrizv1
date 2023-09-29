@@ -25,7 +25,7 @@ body.theme-dark {
 }
  
 body.theme-light {
-  background-color:#dde5ed;
+  background-color:#f7f7f7;
   color: #000000;
 }
 
@@ -37,11 +37,13 @@ body.theme-light {
   .whatsapp-footer,
   .telefono-footer,
   .correo-footer,
-  .footertitle,
   .fondboton{
-    background-color: #abb5bf;
-    color: #000000;
+    background-color: #e0d8b3;
+    color: #333333;
     text-decoration: none;
+  }
+  .footertitle{
+    color:#34495e ;
   }
 }
  

@@ -2,8 +2,8 @@
 body.theme-light { 
  .fundservices,
  .letterservices{
-  background-color: #abb5bf;
-  color: #181818;
+  background-color: #e0d8b3
+  color #333333;
  }
 }
 
@@ -184,3 +184,29 @@ body.theme-dark {
   position: absolute;
 }
 
+body.theme-light .carousel-caption-bg {
+  background-color: rgb(224, 216, 179, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  .carousel-text{
+    color:#333333;
+  
+  }
+}
+
+body.theme-dark .carousel-caption-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  .carousel-text{
+    color:#ffffff ;
+  
+  }
+}
+
+body.theme-light .carousel-caption-bg h5,
+body.theme-light .carousel-caption-bg p,
+body.theme-dark .carousel-caption-bg h5,
+body.theme-dark .carousel-caption-bg p {
+  margin: 0;
+}

@@ -3,23 +3,22 @@
 {% load static %}
 <html lang="es">
     <head>
-        <link rel="stylesheet" href={% static 'css/homepage/us.css' %}>
+        <link rel="stylesheet" href="{% static 'css/homepage/us.css' %}">
         <link rel="stylesheet" href="{% static 'node_modules/bootstrap/scss/all.min.css' %}"/>
         <script src="{% static 'node_modules/scrollreveal/dist/scrollreveal.js' %}"></script>
     </head>
-    <body>  
+    <body> 
+
         <!-- Inicio Titulo -->
-        <section class="container-fluid page-header">
-            <div class="container-izquierda ">
-                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                    <h3 class="display-4 text-white text-uppercase">Nosotros</h3>
-                    <div class="d-inline-flex text-white">
-                        <p class="m-0 text-uppercase"><a class="text-white text-decoration-none" href="{% url 'start' %}">Inicio</a></p>
-                    </div>
-                </div>
+        <hr>
+        <section class="container-fluid">
+            <div class="d-flex flex-column align-items-center justify-content-center" >
+                <h1 class=" text-box ">Nosotros</h1>
             </div>
         </section>
+        <hr>
         <!-- Fin Titulo -->
+
         <!-- Inicio Personal Capacitado -->
         <section class="sec-01">
             <div class="container">

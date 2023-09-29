@@ -16,7 +16,7 @@
   </head>
   <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
     {% include 'homepage/header-homepage.html' %}
-      <div class="space">
+      <div class="space ">
         {% block contenido %}
         {% endblock contenido %}
       </div>
