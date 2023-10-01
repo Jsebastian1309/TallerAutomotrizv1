@@ -2,8 +2,8 @@
 body.theme-light { 
  .fundservices,
  .letterservices{
-  background-color: #e0d8b3
-  color #333333;
+  background-color: #ffffff;
+  color: #333333;
  }
 }
 
@@ -185,7 +185,7 @@ body.theme-dark {
 }
 
 body.theme-light .carousel-caption-bg {
-  background-color: rgb(224, 216, 179, 0.8); 
+  background-color: rgb(224, 216, 179); 
   padding: 20px;
   border-radius: 10px;
   .carousel-text{
@@ -195,7 +195,7 @@ body.theme-light .carousel-caption-bg {
 }
 
 body.theme-dark .carousel-caption-bg {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(24, 24, 24);
   padding: 20px;
   border-radius: 5px;
   .carousel-text{

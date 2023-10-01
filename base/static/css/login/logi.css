@@ -1,5 +1,5 @@
 .imagenlogin {
-    background-image: url("/static/img/loginpinautos.jpg");
+    background-image: url("/static/img/Logos/LogoOriginal-removebg-preview.png");
     background-position: center center;
 }
 .margin{
@@ -8,11 +8,11 @@
 body.theme-light {
     .fondlogin,
     .textlogin{
-        background-color:#abb5bf;
-        color: #000000;
+        background-color:#e0d8b3;
+        color: #333333;
     } 
     .alert-custom {
-    background-color: #7d848c;
+    background-color: #ada68a;
     color: #000000;  
     } 
 }
