@@ -1,7 +1,4 @@
-.page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/img/taller.jpg), no-repeat center center;
-  background-size: cover;
-}
+
 body.theme-dark {
   .container {
     position: relative;
@@ -198,11 +195,11 @@ body.theme-light {
   
   .content .text-box {
     z-index: 222;
-    background:  #abb5bf;
+    background:  #ffffff;
     backdrop-filter: blur(20px);
     padding: 40px;
     max-width: 400px;
-    border: 1px solid #abb5bf;
+    border: 1px solid #ffffff;
     border-radius: 10px;
     transform: translate(-50%, 50%);
     margin-top: 30px;

@@ -1,5 +1,11 @@
 .space {
-    margin-top:23px; 
+    margin-top:116px; 
+  }
+  @media (max-width: 768px) {
+    
+    .space {
+      margin-top: 188px;
+    }
   }
   html, body {
     height: 100%;
@@ -12,14 +18,15 @@
   }
   .content {
     flex: 1;
+  
   }
 
   
 body.theme-light {
   .fondcard,
   .colortextcolumn{
-    background-color: #abb5bf;
-    color: #000000;
+    background-color: #e0d8b3;
+    color: #333333;
   }
   
 }
