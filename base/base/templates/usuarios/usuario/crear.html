@@ -2,10 +2,84 @@
 {% load crispy_forms_tags %}
 {% block contenido %}
 <form action="" method="POST">
-  {% csrf_token %} {{form|crispy}}
+  {% csrf_token %}
+  {{ form.tipo_usuario|as_crispy_field }}
+  {{ form.nombres|as_crispy_field }}
+  {{ form.apellidos|as_crispy_field }}
+  {{ form.tipo_identificacion|as_crispy_field }}
+  {{ form.identificacion|as_crispy_field }}
+  {{ form.telefono|as_crispy_field }}
+  
+  <div id="campos_administrador" style="display: none;">
+    {{ form.nombreusuario|as_crispy_field }}
+    {{ form.correo_personal|as_crispy_field }}
+    {{ form.contraseña|as_crispy_field }}
+    {{ form.confirmarcontraseña|as_crispy_field }}
+    {{ form.direccion|as_crispy_field }}
+    {{ form.rh|as_crispy_field }}
+  </div>
+
+
+  <div id="campos_mecanico" style="display: none;">
+    {{ form.nombreusuario|as_crispy_field }}
+    {{ form.correo_personal|as_crispy_field }}
+    {{ form.contraseña|as_crispy_field }}
+    {{ form.confirmarcontraseña|as_crispy_field }}
+    {{ form.direccion|as_crispy_field }}
+    {{ form.rh|as_crispy_field }}
+  </div>
+
+
+  <div id="campos_Secretaria" style="display: none;">
+    {{ form.nombreusuario|as_crispy_field }}
+    {{ form.correo_personal|as_crispy_field }}
+    {{ form.contraseña|as_crispy_field }}
+    {{ form.confirmarcontraseña|as_crispy_field }}
+    {{ form.direccion|as_crispy_field }}
+    {{ form.rh|as_crispy_field }}
+  </div>
+
+  <!-- Campos adicionales para Cliente -->
+  <div id="campos_cliente" style="display: none;">
+    <!-- No hay campos adicionales para Cliente -->
+  </div>
+
   <div class="text-center">
     <a href="{% url 'usuarios' %}" class="btn btn-primary m-3">Volver {{titulo}}</a>
-    <input type="submit" value="Agregar {{titulo}}" class="btn btn-success m-3"/>
+    <input type="submit" value="Agregar {{titulo}}" class="btn btn-success m-3" />
   </div>
 </form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    var tipoUsuario = document.getElementById("id_tipo_usuario");
+    var camposAdministrador = document.getElementById("campos_administrador");
+    var camposMecanico = document.getElementById("campos_mecanico");
+    var camposSecretaria = document.getElementById("campos_Secretaria");
+    var camposCliente = document.getElementById("campos_cliente");
+
+    tipoUsuario.addEventListener("change", function () {
+
+        camposAdministrador.style.display = "none";
+        camposMecanico.style.display = "none";
+        camposSecretaria.style.display = "none";
+        camposCliente.style.display = "none";
+
+
+        if (tipoUsuario.value === "Administrador") {
+            camposAdministrador.style.display = "block";
+        } else if (tipoUsuario.value === "Mecanico") {
+            camposMecanico.style.display = "block";
+        } else if (tipoUsuario.value === "Secretaria") {
+            camposSecretaria.style.display = "block";
+        } else if (tipoUsuario.value === "Cliente") {
+            camposCliente.style.display = "block";
+        }
+    });
+
+  
+    tipoUsuario.dispatchEvent(new Event("change"));
+});
+</script>
 {% endblock contenido %}
