@@ -6,13 +6,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/Logo.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/Logos/Icono2.png' %}" type="image/x-icon">
     {% bootstrap_css %} {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' %}" /> 
     <link rel="stylesheet" href="{% static 'node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}">
-
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
@@ -21,42 +20,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-
-
     <link rel="stylesheet" href="{% static 'css/body.css' %}">
- 
-
- 
     <title>Taller Pinautos</title>
   </head>
 
   
   <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
-
     {% include 'partials/header.html' %}
-    <div class="page-wrapper">
-      <div class="content">
+    
         <div class="space container "> 
           {% block contenido %}
           {% endblock contenido %}
         </div>
-      </div>
-   
- 
-
     {% include 'partials/modal.html' %}
     {% include 'partials/scripts.html' %}
     <script src="{% static 'js/tablas.js'%}"></script>
     <script src="{% static 'js/body.js'%}"></script>
     <script type="text/javascript" src="{% static '/node_modules/accessibility/dist/main.bundle.js' %}"></script>
     <script src="{% static 'js/accessibility.js'%}"></script>
-
     {% include 'partials/footer.html' %}
     {% if messages %}
     {% for message in messages %}
     <script src="{% static 'jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
-     
     <script> 
     Swal.fire(
       {position: 'top-end',
@@ -72,7 +58,6 @@
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }        });
     </script>
-
     {% endfor %}
     {% endif %}
   </body>
