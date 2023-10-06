@@ -9,7 +9,7 @@ def numeric_validator(value):
 def alphabetic_validator(value):
     if not all(char.isalpha() or char.isspace() for char in value):
             raise ValidationError('El campo debe contener solo letras y espacios.')
-        
+
 class Arl(models.Model):
     nombre_arl= models.CharField(max_length=20,verbose_name="Nombre Arl",blank=False,validators=[alphabetic_validator])
     telefono_arl= models.CharField(max_length=13,verbose_name="Telefono Arl",validators=[numeric_validator],blank=False)

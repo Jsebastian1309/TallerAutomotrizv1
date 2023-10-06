@@ -1,9 +1,9 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
 
-  <a href="{% url 'usuarios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
-  
-  <div class="card fondcard m-5">
+<a href="{% url 'usuarios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
+
+<div class="card fondcard m-5">
     <div class="card-body">
         <div class="text-decoration-none colortextcolumns">
             Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Nombres</a> - <a class="toggle-vis" data-column="2">Apellidos</a> - <a class="toggle-vis" data-column="3">Tipo Identificacion</a> - <a class="toggle-vis" data-column="4">Identificacion</a> - <a class="toggle-vis" data-column="5">Tipo De usuario</a>
@@ -52,6 +52,4 @@
         </table>
     </div>
 </div>
-
- 
 {% endblock contenido %}

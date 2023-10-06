@@ -49,7 +49,7 @@ class Vehiculo(models.Model):
         NISSAN='NISSAN',_("Nissan")
     marca=models.CharField(max_length=10,choices=Marca.choices,verbose_name="Marca",blank=False)
     modelo= models.CharField(max_length=4, verbose_name="Modelo",default='',blank=False)
-    tipo_aceite= models.CharField(max_length=15, verbose_name= "Tipo de Aceite")
+    tipo_aceite= models.CharField(max_length=25, verbose_name= "Tipo de Aceite")
     kilometraje= models.CharField(max_length=6, verbose_name= "Kilometraje",default='',validators=[numeric_validator],unique=True,blank=False)
     nombre_linea=models.ForeignKey(Linea, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Linea",default=None)
     class Estado(models.TextChoices):
@@ -60,7 +60,3 @@ class Vehiculo(models.Model):
         return f"({self.placa}){self.identificacion}"
     class Meta:
         verbose_name_plural = "vehiculo"
-
-   
-
-  
