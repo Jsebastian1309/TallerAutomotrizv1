@@ -1,7 +1,10 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
 <a href="{% url 'marcarepuestos-crear' %}" class="btn btn-success w-25">Crear Marca Repuesto</a>
-<div class="wrapper m-5">
+<div class="card fondcard m-5">
+  <div class="text-decoration-none colortextcolumns">
+    Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Nombres Marca Repuesto</a> - <a class="toggle-vis" data-column="2">Gama Repuesto</a>
+  </div>
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -35,11 +38,11 @@
               {% endfor %}
             </tbody>
           </table>
-           </div>
+          </div>
       </div>
     </div>
   </section>
-  <script>
+  {% comment %} <script>
     new DataTable('#example', {
     dom: 'Bfrtip',
     buttons: [
@@ -60,5 +63,5 @@
         },
     ],
     });
-</script>
+</script> {% endcomment %}
 {% endblock contenido %}
