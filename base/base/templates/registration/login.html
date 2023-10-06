@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="{% static 'css/login/logi.css' %}">
     </head>
     <body>
-        <section class="margin ">
-            <div class="container w-75 fondlogin  mr-5 rounded shadow  ">
+        <section class="my-4 ">
+            <div class="container w-75 fondlogin  mr-5 rounded shadow ">
                 <div class="row align-items-stretch ">
                     <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 imagenlogin img-fluid"></div>
                     <div class="col p-5 rounded-end">
@@ -35,17 +35,17 @@
                                 <div class="input-group-append">
                                 </div>
                             </div>
-                            <div style="display: flex;">
+                            
                                 <div>
                                     <input type="checkbox" name="{{ form.RememberMeCheckbox.name }}" id="remember">
                                     <label for="remember" class="fw-bold textlogin"> Recuérdame</label>
                                 </div>
-                                <div style="margin-left: auto;">
-                                    <p class="mb-1 text-end fw-bold">
+                                <div >
+                                    <p class="mb-1 text-center fw-bold">
                                         <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
                                     </p>
                                 </div>
-                            </div>
+                           
                             <div>
                                 <input type="checkbox" name="{{ form.RememberMeCheckbox.name }}" class="terms-checkbox">
                                 <label for="{{ form.RememberMeCheckbox.name }}" class="fw-bold textlogin">He leido y acepto los</label>
