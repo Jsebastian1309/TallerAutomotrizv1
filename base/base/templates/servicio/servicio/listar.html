@@ -1,18 +1,25 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
   <a href="{% url 'servicios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
-  <div class="wrapper m-5">
+  <div class="card fondcard m-5">
+    <div class="text-decoration-none colortextcolumns">
+      Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Fecha Registo</a> - <a class="toggle-vis" data-column="2">Mecanico</a>- <a class="toggle-vis" data-column="3">Kilometraje</a> - <a class="toggle-vis" data-column="4">Estado Vehiculo</a> - <a class="toggle-vis" data-column="5">Observaciones</a> - <a class="toggle-vis" data-column="6">Costo Repuesto</a> - <a class="toggle-vis" data-column="7">Costo Servicio</a>
+    </div>
     <section class="content">
       <div class="container-fluid">
-        <div class="row">   
+        <div class="row">
           <div class="col-12">
             <table id="example" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Descripcion</th>
-                  <th>Duracion</th>
-                  <th>Tipo De servicio</th>
+                  <th>ID</th>
+                  <th>Fecha Registo</th>
+                  <th>Mecanico</th>
+                  <th>kilometraje</th>
+                  <th>Estado Vehiculo</th>
+                  <th>Observaciones</th>
+                  <th>Costo Repuesto</th>
+                  <th>Costo Servicio</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
@@ -20,10 +27,14 @@
                 {% for servicio in servicios %}
                   {% if servicio.estado != "0" %}
                     <tr>
-                      <td>{{ servicio.nombre }}</td>
-                      <td>{{ servicio.descripcion }}</td>
-                      <td>{{ servicio.duracion }}</td>
-                      <td>{{ servicio.tipo_servicio }}</td>
+                      <td>{{ servicio.id }}</td>
+                      <td>{{ servicio.fecha_servicio }}</td>
+                      <td>{{ servicio.nombres }}</td>
+                      <td>{{ servicio.kilometraje }}</td>
+                      <td>{{ servicio.estado_vehiculo}}</td>
+                      <td>{{ servicio.observaciones}}</td>
+                      <td>{{ servicio.nombrerepuesto}}</td>
+                      <td>{{ servicio.nombreservicio}}</td>
                       <td>
                         <button type="button" onclick="changeURL('{{ servicio.id }}')" data-taller-pinautos="{{ servicio.id }}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
                           <i class="bi bi-trash"></i>
@@ -42,7 +53,7 @@
       </div>
     </section>
   </div>
-  <script>
+  {% comment %} <script>
     new DataTable('#example', {
     dom: 'Bfrtip',
     buttons: [
@@ -63,5 +74,5 @@
         },
     ],
     });
-</script>
+</script> {% endcomment %}
 {% endblock contenido %}

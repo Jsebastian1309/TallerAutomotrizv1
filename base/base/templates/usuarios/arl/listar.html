@@ -1,7 +1,10 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
   <a href="{% url 'arls-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
-  <div class="wrapper m-5">
+  <div class="card fondcard m-5">
+    <div class="text-decoration-none colortextcolumns">
+      Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Nombre ARL</a> - <a class="toggle-vis" data-column="2">Telefono ARL</a> - <a class="toggle-vis" data-column="3">Correo ARL</a> - <a class="toggle-vis" data-column="4">Fecha Inicio</a> - <a class="toggle-vis" data-column="5">Fecha Vencimiento</a>
+    </div>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -9,6 +12,7 @@
             <table id="example" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Nombre ARL</th>
                   <th>Telefono ARL</th>
                   <th>Correo ARL</th>
@@ -21,12 +25,12 @@
                 {% for arl in arls %} {% if arl.estado != "0" %}
                 {% endif %}
                 <tr>
+                  <td>{{arl.id}}</td>
                   <td>{{arl.nombre_arl}}</td>
                   <td>{{arl.telefono_arl}}</td>
                   <td>{{arl.correo_arl}}</td>
                   <td>{{arl.fecha_inicioafi}}</td>
                   <td>{{arl.fecha_vencimientoafi}}</td>
-  
                   <td>
                     <button type="button" onclick="changeURL('{{arl.id}}')" data-taller-pinautos="{{arl.id}}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
                       <i class="bi bi-trash"></i>
@@ -45,7 +49,7 @@
     </section>
   </div>
 
-  <script>
+  {% comment %} <script>
     new DataTable('#example', {
       dom: 'Bfrtip',
       buttons: [
@@ -66,7 +70,7 @@
         },
       ],
     });
-  </script>
+  </script> {% endcomment %}
 {% endblock contenido %}
 {% comment %} {
   extend: 'copy',

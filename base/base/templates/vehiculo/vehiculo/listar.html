@@ -1,7 +1,10 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
 <a href="{% url 'vehiculos-crear' %}" class="btn btn-success w-25">crear{{titulo}}</a> 
-<div class="wrapper m-5">
+<div class="card fondcard m-5">
+    <div class="text-decoration-none colortextcolumns">
+        Alternar columnas: <a class="toggle-vis" data-column="0">Placa</a> - <a class="toggle-vis" data-column="1">Marca</a> - <a class="toggle-vis" data-column="2">Modelo</a> - <a class="toggle-vis" data-column="3">Tipo De Aceite</a> - <a class="toggle-vis" data-column="4">Kilometraje</a> - <a class="toggle-vis" data-column="5">Linea</a>
+    </div>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -46,7 +49,7 @@
         </div>
     </section>
 </div>
-<script>
+{% comment %} <script>
     new DataTable('#example', {
     dom: 'Bfrtip',
     buttons: [
@@ -67,5 +70,5 @@
         },
     ],
     });
-</script>
+</script> {% endcomment %}
 {% endblock contenido %}
