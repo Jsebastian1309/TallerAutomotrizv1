@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{% static 'img/Logos/Icono2.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/logos/Icono2.png' %}" type="image/x-icon">
     {% bootstrap_css %} {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
@@ -28,7 +28,7 @@
   <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
     {% include 'partials/header.html' %}
     
-        <div class="space container "> 
+        <div class=" container "> 
           {% block contenido %}
           {% endblock contenido %}
         </div>

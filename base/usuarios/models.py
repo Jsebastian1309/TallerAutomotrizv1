@@ -43,6 +43,7 @@ class Usuario(models.Model):
     tipo_identificacion = models.CharField(max_length=18, choices=TipoIdentificacion.choices, verbose_name="Tipo de identificacion", default=TipoIdentificacion.CEDULA, blank=False)
     identificacion = models.CharField(max_length=10, verbose_name="Identificacion", default='', validators=[numeric_validator], unique=True, blank=False)
     telefono = models.CharField(max_length=11, verbose_name="Telefono", validators=[numeric_validator], blank=False)
+    telefono2 = models.CharField(max_length=11, verbose_name="Segundo Telefono", validators=[numeric_validator], blank=False)
     
     nombreusuario = models.CharField(max_length=20, verbose_name="Nombre De Usuario", blank=True, default='')
     correo_personal = models.EmailField(max_length=50, verbose_name="Correo Personal", blank=True, default='')

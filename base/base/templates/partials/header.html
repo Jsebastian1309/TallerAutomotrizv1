@@ -6,81 +6,86 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dar fondoheader">
+  <nav class="navbar navbar-expand-md fondoheader textcolor">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'index' %}">
       <img src="{% static 'img/Logos/LogoHeader.png' %}" alt="Pinautos">
     </a>
+    
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-center" id="menu">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a href="{% url 'index' %}" class="nav-link textcolor">Inicio</a>
+      <ul class="navbar-nav ">
+        <li class="nav-item ">
+          <a href="{% url 'index' %}" class="nav-link textcolor"><i class="bi bi-house-fill"></i> Inicio</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle textcolor" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Usuarios
+            <i class="bi bi-person-circle"></i> Usuarios
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-            <li><a class="dropdown-item" href="{% url 'usuarios' %}">Usuarios</a></li>
-            <li><a class="dropdown-item" href="{% url 'arls' %}">Arl</a></li>
+          <ul class="dropdown-menu fondoheader " aria-labelledby="navbarDropdown1">
+            <li><a class="dropdown-item textcolor" href="{% url 'usuarios' %}">Usuarios</a></li>
+            <li><a class="dropdown-item textcolor" href="{% url 'arls' %}">Arl</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle textcolor" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Repuestos
+            <i class="bi bi-wrench-adjustable"></i> Repuestos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <li><a class="dropdown-item" href="{% url 'repuestos' %}">Repuestos</a></li>
-            <li><a class="dropdown-item" href="{% url 'marcarepuestos' %}">Marcarepuesto</a></li>
+          <ul class="dropdown-menu fondoheader" aria-labelledby="navbarDropdown2">
+            <li><a class="dropdown-item textcolor" href="{% url 'repuestos' %}">Repuestos</a></li>
+            <li><a class="dropdown-item textcolor" href="{% url 'marcarepuestos' %}">Marcarepuesto</a></li>
              
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link textcolor" href="{% url 'citas' %}">
-            Cita
+            <i class="bi bi-calendar-week"></i> Cita
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle textcolor" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Servicio
+            <i class="bi bi-tools"></i> Servicio
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-            <li><a class="dropdown-item" href="{% url 'servicios' %}">Servicio</a></li>
-            <li><a class="dropdown-item" href="{% url 'detalleservicios' %}">Detalle Servicio</a></li>
+          <ul class="dropdown-menu fondoheader" aria-labelledby="navbarDropdown4">
+            <li><a class="dropdown-item textcolor" href="{% url 'servicios' %}">Servicio</a></li>
+            <li><a class="dropdown-item textcolor" href="{% url 'detalleservicios' %}">Detalle Servicio</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link textcolor" href="{% url 'ventas' %}">
-              Venta
+            <i class="bi bi-receipt"></i> Venta
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle textcolor" href="#" id="navbarDropdown6" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vehiculo
+            <i class="bi bi-car-front-fill"></i> Vehiculo
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown6">
-            <li><a class="dropdown-item" href="{% url 'vehiculos' %}">Vehiculo</a></li>
-            <li><a class="dropdown-item" href="{% url 'lineas' %}">Lineas</a></li>
+          <ul class="dropdown-menu fondoheader" aria-labelledby="navbarDropdown6">
+            <li><a class="dropdown-item textcolor" href="{% url 'vehiculos' %}">Vehiculo</a></li>
+            <li><a class="dropdown-item textcolor" href="{% url 'lineas' %}">Lineas</a></li>
           </ul>
         </li>
       </ul>
       <hr class="d-md-none bg-warning-50"> 
     </div>
   </div>
- 
+  
   <button id="tema-toggle" class="btn btn-sm fondboton ms-2">
     <i class="bi bi-sun-fill" id="icono-sol"></i>
     <i class="bi bi-moon-fill d-none" id="icono-luna"></i>
   </button>
   <a href="{% url 'Manualayudaclientes' %}" class=" text-decoration-none m-4 textcolor"><i class="bi bi-question-circle-fill"></i></a>
-  <form action="#" method="GET" class="m-1">
-   
-  </form>
-  <form action="{% url 'login' %}" method="GET" class="m-1">
-    <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-box-arrow-right"></i></button>
-  </form>
+
+  <div class="btn-group m-2">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="bi bi-person-fill"></i>{{ user.username|title }}
+    </button>
+    <div class="dropdown-menu dropdown-menu-end">
+      <a href="{% url 'logout' %}" class="dropdown-item">Cerrar sesión</a>
+    </div>
+  </div>
 </nav>
