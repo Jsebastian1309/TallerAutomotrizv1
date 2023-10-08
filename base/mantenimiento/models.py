@@ -25,7 +25,8 @@ class Cita(models.Model):
         Enproceso='En proceso',_("Enproceso")
         Finalizada='Finalizada',_("Finalizada")
     estado_cita=models.CharField(max_length=10,choices=EstadoCita.choices,default=EstadoCita.Programada,verbose_name="Estado")
-    
+    def __str__(self):
+        return f"({self.fecha_cita}){self.placa}{self.nombreservicios}"
      
     class Meta:
         verbose_name_plural = "Citas"
