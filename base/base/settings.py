@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'servicio',
     'mantenimiento',
     'django_bootstrap5', 
-    'crispy_forms', 
+    'crispy_forms',
     'crispy_bootstrap5', 
     'django_bootstrap_icons', 
      
