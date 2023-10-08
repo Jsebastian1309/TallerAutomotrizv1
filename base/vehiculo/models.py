@@ -31,8 +31,7 @@ class Linea(models.Model):
         return self.nombre_linea  
     class Meta:
         verbose_name_plural="linea"
-    
-    
+
 class Vehiculo(models.Model):
     identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Usuario",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE})
     placa= models.CharField(max_length=6,verbose_name="Placa")
