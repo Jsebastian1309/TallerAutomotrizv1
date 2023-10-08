@@ -1,14 +1,16 @@
 {% extends 'partials/body.html' %}
 {% block contenido %}
-
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+</head>
 <a href="{% url 'usuarios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
 
 <div class="card fondcard m-5">
     <div class="card-body">
-        <div class="text-decoration-none colortextcolumns">
-            Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Nombres</a> - <a class="toggle-vis" data-column="2">Apellidos</a> - <a class="toggle-vis" data-column="3">Tipo Identificacion</a> - <a class="toggle-vis" data-column="4">Identificacion</a> - <a class="toggle-vis" data-column="5">Tipo De usuario</a>
-        </div>
-        <table id="example" class="table table-striped dark" style="width:100%">
+       
+        <table id="example" class="table table-striped nowrap" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -52,4 +54,15 @@
         </table>
     </div>
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    <script> 
+        new DataTable('#example', {
+        responsive: true
+        });
+        </script>
 {% endblock contenido %}

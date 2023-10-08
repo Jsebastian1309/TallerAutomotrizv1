@@ -10,17 +10,14 @@
     {% bootstrap_css %} {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' %}" /> 
-    <link rel="stylesheet" href="{% static 'node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.min.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
     <title>Taller Pinautos</title>
   </head>
 
@@ -41,8 +38,8 @@
     {% include 'partials/footer.html' %}
     {% if messages %}
     {% for message in messages %}
-    <script src="{% static 'jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
+
+    
     <script> 
     Swal.fire(
       {position: 'top-end',
@@ -58,6 +55,8 @@
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }        });
     </script>
+    
+    
     {% endfor %}
     {% endif %}
   </body>
