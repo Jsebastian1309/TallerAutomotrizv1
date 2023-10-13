@@ -1,5 +1,4 @@
-
-  body.theme-light {
+body.theme-light {
     .text-footer,
     .fondfooter{
     background-color:#e0d8b3;
@@ -16,4 +15,7 @@
 
 .fondfooter {
   margin-top: auto;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
 }

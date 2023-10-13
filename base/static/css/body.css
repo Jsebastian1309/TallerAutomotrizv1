@@ -7,7 +7,11 @@
       margin-top: 188px;
     }
   }
-
+body{
+  position: relative;
+  padding-bottom: 115px;
+  min-height: 100vh;
+}
 body.theme-light {
   .fondcard,
   .colortextcolumn{
@@ -23,5 +27,3 @@ body.theme-dark {
     color: #ffffff;
   }
 }  
-
-  

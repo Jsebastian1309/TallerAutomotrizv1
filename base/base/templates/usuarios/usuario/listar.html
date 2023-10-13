@@ -1,9 +1,6 @@
 {% extends 'partials/body.html' %}
+{% load static %}
 {% block contenido %}
-<head>
-    
-</head>
-
 <body>
     <a href="{% url 'usuarios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
     <div class="card fondcard m-5">
@@ -20,7 +17,10 @@
                         <th>Tipo De usuario</th>
                         <th>Telefono</th>
                         <th>Correo</th>
+                        <th>Nombre De Usuario</th>
                         <th>Fecha Registro</th>
+                        <th>Direccion</th>
+                        <th>Rh</th>
                         <th>ARl</th>
                         <th>Acciones</th>
                     </tr>
@@ -37,7 +37,10 @@
                         <td>{{usuario.tipo_usuario}}</td>
                         <td>{{usuario.telefono}}</td>
                         <td>{{usuario.correo_personal}}</td>
+                        <td>{{usuario.nombreusuario}}</td>
                         <td>{{usuario.fecha_registro}}</td>
+                        <td>{{usuario.direccion}}</td>
+                        <td>{{usuario.rh }}</td>
                         <td>{{usuario.arl.nombre_arl}}</td>
                         <td>
                             <button type="button" onclick="changeURL('{{usuario.id}}')" data-taller-pinautos="{{usuario.id}}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
@@ -64,11 +67,9 @@
                         <th>Apellidos</th>
                         <th>Tipo Identificacion</th>
                         <th>Identificacion</th>
-                        <th>Tipo De usuario</th>
                         <th>Telefono</th>
-                        <th>Correo</th>
+                        <th>Segundo Telefono</th>
                         <th>Fecha Registro</th>
-                        <th>ARl</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -81,11 +82,9 @@
                         <td>{{usuario.apellidos}}</td>
                         <td>{{usuario.tipo_identificacion}}</td>
                         <td>{{usuario.identificacion}}</td>
-                        <td>{{usuario.tipo_usuario}}</td>
                         <td>{{usuario.telefono}}</td>
-                        <td>{{usuario.correo_personal}}</td>
+                        <td>{{usuario.telefono2}}</td>
                         <td>{{usuario.fecha_registro}}</td>
-                        <td>{{usuario.arl.nombre_arl}}</td>
                         <td>
                             <button type="button" onclick="changeURL('{{usuario.id}}')" data-taller-pinautos="{{usuario.id}}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
                                 <i class="bi bi-trash3-fill"></i>
@@ -100,106 +99,18 @@
             </table>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
-    <script> 
-    new DataTable('#example', {
-    responsive: true,
-    columnDefs: [
-    { responsivePriority: 1, targets:1 },
-    { responsivePriority: 2, targets: 9 },
-    { responsivePriority: 3, targets: 10 }],
-    dom: 'Bfrtip',
-    buttons:{
-        buttons:[
-        {
-        extend:'copy',
-        text:'<i class="bi bi-clipboard-fill"></i>',
-        titleAttr:'copiar',
-        className:'my-2 btn fondcard'
-        },
-        {
-        extend:'excel',
-        text:'<i class="bi bi-filetype-exe"></i>',
-        titleAttr:'exportar a excel',
-        className:'btn fondcard my-2'
-        },
-        {
-        extend:'pdf',
-        text:'<i class="bi bi-filetype-pdf"></i>',
-        titleAttr:'exportar a pdf',
-        className:'btn fondcard my-2'
-        },
-        {
-        extend:'print',
-        text:'<i class="bi bi-printer-fill"></i>',
-        titleAttr:'imprimir',
-        className:'btn fondcard my-2'
-        },
-        {
-        extend:'colvis',
-        text:'<i class="bi bi-eye-fill"></i>',
-        titleAttr:'imprimir',
-        className:'btn fondcard my-2'
-        },
-        ]
-    }
-    });
-    </script>
-    <script> 
-        new DataTable('#example2', {
-        responsive: true,
-        columnDefs: [
-        { responsivePriority: 1, targets:1 },
-        { responsivePriority: 2, targets: 9 },
-        { responsivePriority: 3, targets: 10 }],
-        dom: 'Bfrtip',
-        buttons:{
-            buttons:[
-            {
-            extend:'copy',
-            text:'<i class="bi bi-clipboard-fill"></i>',
-            titleAttr:'copiar',
-            className:'my-2 btn fondcard'
-            },
-            {
-            extend:'excel',
-            text:'<i class="bi bi-filetype-exe"></i>',
-            titleAttr:'exportar a excel',
-            className:'btn fondcard my-2'
-            },
-            {
-            extend:'pdf',
-            text:'<i class="bi bi-filetype-pdf"></i>',
-            titleAttr:'exportar a pdf',
-            className:'btn fondcard my-2'
-            },
-            {
-            extend:'print',
-            text:'<i class="bi bi-printer-fill"></i>',
-            titleAttr:'imprimir',
-            className:'btn fondcard my-2'
-            },
-            {
-            extend:'colvis',
-            text:'<i class="bi bi-eye-fill"></i>',
-            titleAttr:'imprimir',
-            className:'btn fondcard my-2'
-            },
-            ]
-        }
-        });
-    </script>
+    <script src="{% static 'node_modules/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{% static 'js/tablas/cdn.datatables.net_responsive_2.5.0_js_dataTables.responsive.min.js'%}"></script>
+    <script src="{% static 'js/tablas/responsive.js'%}"></script>
+    <script src="{% static 'js/tablas/botones.js'%}"></script>
+    <script src="{% static 'js/tablas/botones-bootrap.js'%}"></script>
+    <script src="{% static 'js/tablas/zip.js'%}"></script>
+    <script src="{% static 'js/tablas/pdfmake.js'%}"></script>
+    <script src="{% static 'js/tablas/fonts.js'%}"></script>
+    <script src="{% static 'js/tablas/html5.js'%}"></script>
+    <script src="{% static 'js/tablas/print.js'%}"></script>
+    <script src="{% static 'js/tablas/colVis.js'%}"></script>
+    <script src="{% static 'js/tablas/tablas.js'%}"></script>
+    <script src="{% static 'js/tablas/tablas2.js'%}"></script>
 </body>
 {% endblock contenido %}
