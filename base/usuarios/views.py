@@ -26,15 +26,19 @@ def usuario_crear(request):
 
 @login_required
 def usuario_listar(request):
-    titulo="usuarios"
-    modulo="usuarios"
-    usuario=Usuario.objects.all()
-    context={
-        "titulo":titulo,
-        "modulo":modulo,
-        "usuarios":usuario
+    titulo = "Usuarios"
+    modulo = "Usuarios"
+    usuarios = Usuario.objects.all()
+    usuarios_cliente = usuarios.filter(tipo_usuario=Usuario.TipoUsuario.CLIENTE)
+    otros_usuarios = usuarios.exclude(tipo_usuario=Usuario.TipoUsuario.CLIENTE)
+
+    context = {
+        "titulo": titulo,
+        "modulo": modulo,
+        "usuarios_cliente": usuarios_cliente,
+        "otros_usuarios": otros_usuarios,
     }
-    return render(request,"usuarios/usuario/listar.html", context)
+    return render(request, "usuarios/usuario/listar.html", context)
 
 @login_required
 def usuario_modificar(request,pk):
