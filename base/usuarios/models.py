@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
@@ -67,28 +68,26 @@ class Usuario(models.Model):
     estado = models.CharField(max_length=2, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado", blank=False)
     arl = models.ForeignKey(Arl, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="ARL")
     
+    def save(self, *args, **kwargs):
+        super(Usuario, self).save(*args, **kwargs)
+        user = User.objects.create_user(username=self.nombreusuario, password=self.contraseña)
+        user.first_name = self.nombres
+        user.last_name = self.apellidos
+        user.email = self.correo_personal
+        user.save()
+        if self.tipo_usuario == Usuario.TipoUsuario.ADMINISTRADOR:
+            grupo = Group.objects.get(name='Administrador')
+        elif self.tipo_usuario == Usuario.TipoUsuario.SECRETARIA:
+            grupo = Group.objects.get(name='Secretaria')
+        elif self.tipo_usuario == Usuario.TipoUsuario.MECANICO:
+            grupo = Group.objects.get(name='Mecanico')
+        else:
+            grupo = Group.objects.get(name='Cliente')
+        user.groups.add(grupo)
     def __str__(self):
         return f"({self.identificacion}) {self.nombres} {self.apellidos}"
 
-    def clean(self):
-        if self.contraseña != self.confirmarcontraseña:
-            raise ValidationError("Las contraseñas no coinciden.")
-
-        if self.tipo_usuario in ['Administrador', 'Mecanico', 'Secretaria']:
-            if not self.rh:
-                raise ValidationError('El campo Factor RH es obligatorio para este tipo de usuario.')
-            if not self.direccion:
-                raise ValidationError('El campo Dirección es obligatorio para este tipo de usuario.')
-            if not self.contraseña:
-                raise ValidationError('El campo Contraseña es obligatorio para este tipo de usuario.')
-            if not self.confirmarcontraseña:
-                raise ValidationError('El campo Confirmar Contraseña es obligatorio para este tipo de usuario.')
-        elif self.tipo_usuario == 'Cliente':
-            if self.arl is not None:
-                raise ValidationError('Un usuario de tipo Cliente no puede tener una ARL.')
-            if self.direccion:
-                raise ValidationError('Un usuario de tipo Cliente no puede tener una dirección.')
-
+   
     class Meta:
         verbose_name_plural = "usuarios"
          

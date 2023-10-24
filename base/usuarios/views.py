@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import user_passes_test
 from usuarios.models import Usuario
 from usuarios.models import Arl
 from usuarios.forms import UsuarioForm,UsuarioUpdateForm,ArlForm,ArlUpdateForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
  
@@ -41,30 +43,46 @@ def usuario_listar(request):
     return render(request, "usuarios/usuario/listar.html", context)
 
 @login_required
-def usuario_modificar(request,pk):
-    titulo="Usuario"
-    usuario= Usuario.objects.get(id=pk)
-    if request.method== 'POST':
-        form= UsuarioUpdateForm(request.POST, instance=usuario)
+def usuario_modificar(request, pk):
+    titulo = "Usuario"
+    usuario = Usuario.objects.get(id=pk)
+
+    if request.method == 'POST':
+        form = UsuarioUpdateForm(request.POST, instance=usuario)
+
         if form.is_valid():
+            new_username = form.cleaned_data.get('nombreusuario')
+            if new_username != usuario.nombreusuario:
+                if Usuario.objects.filter(nombreusuario=new_username).exclude(id=usuario.id).exists():
+                    messages.error(request, 'El nombre de usuario ya está en uso. Por favor, elija otro.')
+                    return render(request, "usuarios/usuario/modificar.html", {"titulo": titulo, "form": form})
+
             form.save()
             messages.success(request, 'El formulario se ha modificado correctamente.')
             return redirect('usuarios')
     else:
-        form= UsuarioUpdateForm(instance=usuario)
-    context={
-        "titulo":titulo,
-        "form":form
-        }
-    return render(request,"usuarios/usuario/modificar.html", context)
+        form = UsuarioUpdateForm(instance=usuario)
 
-@login_required
-def usuario_eliminar(request,pk):
-    usuario= Usuario.objects.filter(id=pk)
-    usuario.delete()
-    usuario.update()
+    context = {
+        "titulo": titulo,
+        "form": form
+    }
+    return render(request, "usuarios/usuario/modificar.html", context)
+def usuario_eliminar(request, pk):
+    try:
+        usuario = Usuario.objects.get(id=pk)
+        try:
+            user = User.objects.get(username=usuario.nombreusuario)
+            user.delete()
+        except User.DoesNotExist:
+            pass  
+        usuario.delete()
+        
+        messages.success(request, 'El usuario se eliminó correctamente.')
+    except Usuario.DoesNotExist:
+        messages.error(request, 'El usuario no existe.')
+
     return redirect('usuarios')
-
 
 #views de tabla arl
 @login_required
