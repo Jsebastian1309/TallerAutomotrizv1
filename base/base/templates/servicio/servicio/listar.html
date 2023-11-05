@@ -1,11 +1,15 @@
 {% extends 'partials/body.html' %}
-{% load static %}
 {% block contenido %}
   <a href="{% url 'servicios-crear' %}" class="btn btn-success w-25">Crear {{titulo}}</a>
   <div class="card fondcard m-5">
-    <h3 class="text-center m-2">Servicios</h3>
-    <div class="card-body">
-            <table id="example2" class="table table-striped" style="width:100%">
+    <div class="text-decoration-none colortextcolumns">
+      Alternar columnas: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">Fecha Registo</a> - <a class="toggle-vis" data-column="2">Mecanico</a>- <a class="toggle-vis" data-column="3">Kilometraje</a> - <a class="toggle-vis" data-column="4">Estado Vehiculo</a> - <a class="toggle-vis" data-column="5">Observaciones</a> - <a class="toggle-vis" data-column="6">Costo Repuesto</a> - <a class="toggle-vis" data-column="7">Costo Servicio</a>
+    </div>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <table id="example" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
                   <th>ID</th>
@@ -49,16 +53,26 @@
       </div>
     </section>
   </div>
-  <script src="{% static 'node_modules/datatables.net/js/jquery.dataTables.min.js'%}"></script>
-  <script src="{% static 'js/tablas/cdn.datatables.net_responsive_2.5.0_js_dataTables.responsive.min.js'%}"></script>
-  <script src="{% static 'js/tablas/responsive.js'%}"></script>
-  <script src="{% static 'js/tablas/botones.js'%}"></script>
-  <script src="{% static 'js/tablas/botones-bootrap.js'%}"></script>
-  <script src="{% static 'js/tablas/zip.js'%}"></script>
-  <script src="{% static 'js/tablas/pdfmake.js'%}"></script>
-  <script src="{% static 'js/tablas/fonts.js'%}"></script>
-  <script src="{% static 'js/tablas/html5.js'%}"></script>
-  <script src="{% static 'js/tablas/print.js'%}"></script>
-  <script src="{% static 'js/tablas/colVis.js'%}"></script>
-  <script src="{% static 'js/tablas/tablas2.js'%}"></script>
+  {% comment %} <script>
+    new DataTable('#example', {
+    dom: 'Bfrtip',
+    buttons: [
+        {
+        extend: 'excel',
+        text: '<i class="bi bi-file-earmark-excel"></i> Excel',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'pdf',
+        text: '<i class="bi bi-filetype-pdf"></i> PDF',
+        className: 'btn btn-link',
+        },
+        {
+        extend: 'print',
+        text: '<i class="bi bi-printer"></i> Imprimir',
+        className: 'btn btn-link',
+        },
+    ],
+    });
+</script> {% endcomment %}
 {% endblock contenido %}

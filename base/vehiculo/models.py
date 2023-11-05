@@ -1,4 +1,5 @@
 from django.db import models
+from usuarios.models import Usuario
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -32,6 +33,7 @@ class Linea(models.Model):
         verbose_name_plural="linea"
 
 class Vehiculo(models.Model):
+    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Usuario",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE})
     placa= models.CharField(max_length=6,verbose_name="Placa")
     class Marca(models.TextChoices):
         RENAULT='RENAULT',_("Renault")

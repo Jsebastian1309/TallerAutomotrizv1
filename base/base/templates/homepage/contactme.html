@@ -3,12 +3,13 @@
 {% load static %}
 <html lang="es">
   <head>
-    <link rel="stylesheet" href="{% static 'css/homepage/us.css' %}">
     <link rel="stylesheet" href="{% static 'css/homepage/contactme.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage/us.css' %}">
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/scss/all.min.css' %}"/>
     <script src="{% static 'node_modules/scrollreveal/dist/scrollreveal.js' %}"></script>
   </head>
   <body>
+
     <!-- Inicio Titulo -->
     <hr>
     <section class="container-fluid">
@@ -55,8 +56,8 @@
                         </div>
                       </div>
                       <div class=" d-flex justify-content-center m-2">
-                          <input  type="submit" value="Enviar Mensaje" class="btn btn-success m-3" />
-                          <button type="reset" class="btn btn-danger m-3"><i class="bi bi-trash3-fill"></i> Limpiar</button>
+                          <input type="submit" value="Enviar Mensaje" class="btn btn-primary m-2">
+                          <input type="reset" value="Limpiar" class="btn btn-secondary m-2">
                       </div>
                     </div>
                   </form>

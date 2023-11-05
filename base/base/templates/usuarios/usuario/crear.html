@@ -37,6 +37,15 @@
           <div class="col-md-4">
             {{ form.telefono2|as_crispy_field }}
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="campos_administrador" class="tipo-campo">
+      <div class="container m-4">
+        <div class="card fondoheader w-75 mx-auto">
+          <h4 class="text-center m-4">Datos Necesarios para un nuevo administrador</h4>
           <div class="card-body  m-2">
             <div class="row justify-content-center">
               <div class="text-center col-md-5">
@@ -67,10 +76,93 @@
                 {{ form.rh|as_crispy_field }}
               </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
   </section>
+
+  <section id="campos_secretaria" class="tipo-campo">
+    <div class="container m-4">
+        <div class="card fondoheader w-75 mx-auto">
+          <h4 class="text-center m-4">Datos Necesarios para una nueva secretaria</h4>
+          <div class="card-body  m-2">
+            <div class="row justify-content-center">
+              <div class="text-center col-md-5">
+                {{ form.correo_personal|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.nombreusuario|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.direccion|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.contraseña|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.confirmarcontraseña|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.arl|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.rh|as_crispy_field }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section id="campos_mecanico" class="tipo-campo">
+    <div class="container m-4">
+        <div class="card fondoheader w-75 mx-auto">
+          <h4 class="text-center m-4">Datos Necesarios para un nuevo mecanico</h4>
+          <div class="card-body  m-2">
+            <div class="row justify-content-center">
+              <div class="text-center col-md-5">
+                {{ form.correo_personal|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.nombreusuario|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.direccion|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.contraseña|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.confirmarcontraseña|as_crispy_field }}
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                {{ form.arl|as_crispy_field }}
+              </div>
+              <div class="col-md-4">
+                {{ form.rh|as_crispy_field }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <div id="camposCliente" class="tipo-campo">
+  </div>
+
+
   <div class="text-center">
     <a href="{% url 'usuarios' %}" class="btn btn-primary m-3"><i class="bi bi-box-arrow-in-left"></i> Volver</a>
     <button type="reset" class="btn btn-danger m-3"><i class="bi bi-trash3-fill"></i> Limpiar</button>
@@ -78,5 +170,6 @@
 </div>
 
 </form>
+<script src="{% static 'js/modulos/usuarios.js'%}"></script>
 {% endblock contenido %}
 

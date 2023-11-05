@@ -9,10 +9,10 @@
     <link rel="shortcut icon" href="{% static 'img/Logos/Icono2.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/partial/bodyhomepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-    <title>Taller  Automotriz Pinautos</title>
+    <title>Taller Pinautos</title>
   </head>
   <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
     {% include 'homepage/header-homepage.html' %}
