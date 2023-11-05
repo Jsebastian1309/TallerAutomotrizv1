@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import user_passes_test
 from usuarios.models import Usuario
 from usuarios.models import Arl
-from usuarios.forms import UsuarioForm,UsuarioUpdateForm,ArlForm,ArlUpdateForm
+from usuarios.models import Cliente
+from usuarios.forms import UsuarioForm,UsuarioUpdateForm,ArlForm,ArlUpdateForm,ClienteForm,ClienteUpdateForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -30,15 +31,12 @@ def usuario_crear(request):
 def usuario_listar(request):
     titulo = "Usuarios"
     modulo = "Usuarios"
-    usuarios = Usuario.objects.all()
-    usuarios_cliente = usuarios.filter(tipo_usuario=Usuario.TipoUsuario.CLIENTE)
-    otros_usuarios = usuarios.exclude(tipo_usuario=Usuario.TipoUsuario.CLIENTE)
-
+    usuario = Usuario.objects.all()
     context = {
         "titulo": titulo,
         "modulo": modulo,
-        "usuarios_cliente": usuarios_cliente,
-        "otros_usuarios": otros_usuarios,
+        "usuarios":usuario
+        
     }
     return render(request, "usuarios/usuario/listar.html", context)
 
@@ -139,5 +137,61 @@ def arl_eliminar(request,pk):
     arl = Arl.objects.filter(id=pk)
     arl.delete()
     return redirect('arls')
+
+#views de tabla cliente
+@login_required
+def cliente_crear(request):
+    titulo="Cliente"
+    if request.method== 'POST':
+        form=ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'El Cliente se creo correctamente.')
+            return redirect('clientes')
+        else:
+            messages.error(request, 'El formulario tiene errores.')
+    else:
+        form= ClienteForm()
+    context={
+        "titulo":titulo,
+        "form":form
+        }
+    return render(request,"usuarios/cliente/crear.html", context)
+
+@login_required
+def cliente_listar(request):
+    titulo="Cliente"
+    modulo ="Usuarios"
+    cliente = Cliente.objects.all()
+    context={
+        "titulo":titulo,
+        "modulo":modulo,
+        "clientes":cliente
+    }
+    return render(request,"usuarios/cliente/listar.html", context)
+
+@login_required
+def cliente_modificar(request,pk):
+    titulo="Cliente"
+    cliente= Cliente.objects.get(id=pk)
+    if request.method== 'POST':
+        form= ClienteUpdateForm(request.POST, instance=cliente)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'El formulario se modifico correctamente.')
+            return redirect('clientes')
+    else:
+        form= ArlUpdateForm(instance=cliente)
+    context={
+        "titulo":titulo,
+        "form":form
+        }
+    return render(request,"usuarios/cliente/modificar.html", context)
+
+@login_required
+def cliente_eliminar(request,pk):
+    cliente= Cliente.objects.filter(id=pk)
+    cliente.delete()
+    return redirect('Clientes')
 
  

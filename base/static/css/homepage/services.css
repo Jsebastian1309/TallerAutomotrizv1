@@ -5,13 +5,13 @@ body.theme-light {
     .text-card,
     .swiper-slide{
     background-color: #f7f7f7;
-    color: #333333;
+    color: #000000;
     }
 }
 body.theme-light { 
     .color-text,
     .text-card{
-    color: #333333;
+    color: #000000;
     }
 }
 

@@ -14,7 +14,6 @@ def alphabetic_validator(value):
     if not value.isalpha():
         raise ValidationError('El campo debe contener solo letras.')
 class Venta(models.Model):
-    identificacion=models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Cliente",default=None,limit_choices_to={'tipo_usuario': Usuario.TipoUsuario.CLIENTE})    
     fecha_venta= models.DateTimeField(verbose_name="Fecha de Venta", help_text="DD/MM/AAAA", default=datetime.date.today)
     fecha_cita=models.ForeignKey(Cita, on_delete=models.CASCADE, null=True, verbose_name=" Nombre Usuario",default=None)
     
