@@ -4,12 +4,9 @@ body.theme-light {
     .modal-footer,
     .modal-body,
     .modal-title{
-        background-color: #abb5bf;
-        color: #000000;
-        
-        .btn-close {
-            color: black;
-        }
+        background-color: #e0d8b3;
+        color: #333333;
+
     }
     
 }
@@ -19,12 +16,7 @@ body.theme-light {
     .modal-footer,
     .modal-body,
     .modal-title{
-        background-color: #232323;
-        color: #ffffff;
-        
-        .btn-close {
-            color: white;
-        }
-      
+        background-color: #181818;
+        color: f7f7f7;
     }
 }  
