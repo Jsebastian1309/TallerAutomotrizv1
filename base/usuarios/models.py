@@ -8,12 +8,27 @@ from django.utils.translation import gettext_lazy as _
 #validacion de numeros 
 def numeric_validator(value):
     if not value.isdigit():
-        raise ValidationError('El campo debe contener solo números.')
+        raise ValidationError('El campo debe contener solo números')
 #validacion de letras y espacios 
 def alphabetic_validator(value):
     if not all(char.isalpha() or char.isspace() for char in value):
-            raise ValidationError('El campo debe contener solo letras y espacios.')
-        
+            raise ValidationError('El campo debe contener solo letras y espacios')
+#validacion de Contraseña
+def validate_password(value):
+    if len(value) < 8:
+        raise ValidationError("La contraseña debe tener al menos 8 caracteres")
+    
+    if not any(char.isdigit() for char in value):
+        raise ValidationError("La contraseña debe contener al menos un número")
+    
+    if not any(char.isalpha() for char in value):
+        raise ValidationError("La contraseña debe contener al menos una letra")
+#validacion de Contraseña coincidan
+def validate_passwords_match(value1, value2):
+    if value1 != value2:
+        raise ValidationError("Las contraseñas no coinciden")
+
+
 #modulo arl
 class Arl(models.Model):
     nombre_arl= models.CharField(max_length=20,verbose_name="Nombre Arl",blank=False,validators=[alphabetic_validator])
@@ -43,11 +58,11 @@ class Usuario(models.Model):
     identificacion = models.CharField(max_length=10, verbose_name="Identificacion", default='', validators=[numeric_validator], unique=True, blank=False)
     telefono = models.CharField(max_length=11, verbose_name="Telefono", validators=[numeric_validator], blank=False)
     telefono2 = models.CharField(max_length=11, verbose_name="Segundo Telefono", validators=[numeric_validator], blank=True)
-    #datos para los roles administrador,secretaria,mecanico
     nombreusuario = models.CharField(max_length=20, verbose_name="Nombre De Usuario", blank=False, default='')
     correo_personal = models.EmailField(max_length=50, verbose_name="Correo Personal", blank=False, default='')
-    contraseña = models.CharField(max_length=20, verbose_name="Contraseña", blank=False, default='')
-    confirmarcontraseña = models.CharField(max_length=20, verbose_name="Confirmar Contraseña", blank=False, default='')
+    contrasena_validator = RegexValidator(regex=r'^[A-Za-z0-9]*$',message="La contraseña solo puede contener letras y números.",code='invalid_password')
+    contraseña = models.CharField(max_length=10,verbose_name="Contraseña",blank=False,default='',validators=[validate_password, contrasena_validator])
+    confirmarcontraseña = models.CharField(max_length=10, verbose_name="Confirmar Contraseña", blank=False, default='',validators=[validate_password, contrasena_validator])
     direccion = models.CharField(max_length=50, verbose_name="Dirección", blank=False)
     fecha_registro = models.DateField(verbose_name="Fecha de Registro", help_text="MM/DD/AAAA", auto_now_add=True,)
     class RH(models.TextChoices):
@@ -66,10 +81,6 @@ class Usuario(models.Model):
     estado = models.CharField(max_length=2, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado", blank=False)
     arl = models.ForeignKey(Arl, on_delete=models.SET_NULL, null=True, blank=False, verbose_name="ARL")
     
-    #Validacion en  la contraseña
-    def clean(self):
-        if self.contraseña != self.confirmarcontraseña:
-            raise ValidationError("Las contraseñas no coinciden")
     
     #crear usuario en el sistema  y grupos
     def save(self, *args, **kwargs):
@@ -85,8 +96,6 @@ class Usuario(models.Model):
             grupo = Group.objects.get(name='Secretaria')
         elif self.tipo_usuario == Usuario.TipoUsuario.MECANICO:
             grupo = Group.objects.get(name='Mecanico')
-        else:
-            grupo = Group.objects.get(name='Cliente')
         user.groups.add(grupo)
         
     def __str__(self):

@@ -8,11 +8,12 @@
           <table id="example2" class="table table-striped" style="width: 100%">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>Placa</th>
                 <th>Fecha Cita</th>
                 <th>Hora Cita</th>
                 <th>Contacto</th>
                 <th>Descripcion</th>
+                <th>Nombre Servicio</th>
                 <th>Estado</th>
                 <th>Acciones</th>
               </tr>
@@ -21,11 +22,12 @@
               {% for cita in citas %}
                 {% if cita.estado != "0" %}
                   <tr>
-                    <td>{{ cita.id }}</td>
+                    <td>{{ cita.placa }}</td>
                     <td>{{ cita.fecha_cita }}</td>
                     <td>{{ cita.hora_cita }}</td>
                     <td>{{ cita.contacto }}</td>
                     <td>{{ cita.descripcion_cita }}</td>
+                    <td>{{ cita.nombreservicios }}</td>
                     <td>{{ cita.estado_cita }}</td>
                     <td>
                       <button type="button" onclick="changeURL('{{ cita.id }}')" data-taller-pinautos="{{ cita.id }}" class="btnEliminar btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalConf">
