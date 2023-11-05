@@ -2,11 +2,11 @@
 body.theme-light { 
     .fondo{
         background-color: #f7f7f7;
-        color: #333333;
+        color: #000000;
         .whatsapp-link,
         .telefono-link,
         .correo-link{
-            color: #333333; 
+            color: #000000; 
             text-decoration: none;
         }
     }

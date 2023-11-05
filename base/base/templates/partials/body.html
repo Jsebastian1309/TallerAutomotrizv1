@@ -2,48 +2,44 @@
 {% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="es">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{% static 'img/logos/Icono2.png' %}" type="image/x-icon">
     {% bootstrap_css %} {% bootstrap_javascript %}
-    <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/partial/body.css' %}">
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.all.min.js' %}" /> 
-    <link rel="stylesheet" href="{% static 'node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}">
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/body.css' %}">
-    <title>Taller Pinautos</title>
+    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'node_modules/sweetalert2/dist/sweetalert2.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap-icons/font/bootstrap-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablas/cdn.datatables.net_1.13.6_css_dataTables.bootstrap5.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablas/cdn.datatables.net_buttons_2.4.2_css_buttons.dataTables.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablas/cdn.datatables.net_responsive_2.5.0_css_responsive.bootstrap5.min.css' %}" />
+    <script src="{% static 'node_modules/jquery/dist/jquery.js'%}"></script>
+    <script src="{% static 'node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js'%}"></script>
+    <script src="{% static 'js/tablas/cdn.datatables.net_responsive_2.5.0_js_dataTables.responsive.min.js'%}"></script>
+    <script src="{% static 'js/tablas/cdn.datatables.net_responsive_2.5.0_js_responsive.bootstrap5.min.js'%}"></script>
+    <title>Taller Automotriz Pinautos</title>
+
   </head>
 
-  
-  <body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
-    {% include 'partials/header.html' %}
-    
-        <div class=" container "> 
-          {% block contenido %}
-          {% endblock contenido %}
-        </div>
-    {% include 'partials/modal.html' %}
-    {% include 'partials/scripts.html' %}
-    <script src="{% static 'js/tablas.js'%}"></script>
-    <script src="{% static 'js/body.js'%}"></script>
-    <script type="text/javascript" src="{% static '/node_modules/accessibility/dist/main.bundle.js' %}"></script>
-    <script src="{% static 'js/accessibility.js'%}"></script>
-    {% include 'partials/footer.html' %}
-    {% if messages %}
-    {% for message in messages %}
-    <script src="{% static 'jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'datatables.net/js/jquery.dataTables.min.js' %}"></script>
-    <script> 
+<body{% if request.session.theme == 'dark' %}class="theme-dark"{% else %}class="theme-light"{% endif %} class="color" id="texto">
+  {% include 'partials/header.html' %}
+    <div class=" container "> 
+      {% block contenido %}
+      {% endblock contenido %}
+    </div>
+  {% include 'partials/modal.html'%}
+  {% include 'partials/scripts.html'%}
+  <script src="{% static 'js/body.js'%}"></script>
+  <script src="{% static 'js/accessibility.js'%}"></script>
+  <script type="text/javascript" src="{% static '/node_modules/accessibility/dist/main.bundle.js' %}"></script>
+  {% include 'partials/footer.html' %}
+  {% if messages %}
+  {% for message in messages %}
+  <script> 
     Swal.fire(
       {position: 'top-end',
     toast: true,
@@ -57,8 +53,9 @@
       toast.addEventListener('mouseenter', Swal.stopTimer)
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }        });
-    </script>
-    {% endfor %}
-    {% endif %}
-  </body>
+  </script>
+  
+  {% endfor %}
+  {% endif %}
+</body>
 </html>

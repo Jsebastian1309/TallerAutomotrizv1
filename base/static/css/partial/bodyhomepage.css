@@ -7,7 +7,6 @@
       margin-top: 188px;
     }
   }
-
 body.theme-light {
   .fondcard,
   .colortextcolumn{
@@ -23,5 +22,3 @@ body.theme-dark {
     color: #ffffff;
   }
 }  
-
-  
